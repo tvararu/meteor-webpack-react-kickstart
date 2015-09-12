@@ -13,7 +13,7 @@ You will get:
 
 # Folders
 - `react`: Your React.js application. It must be outside your Meteor project or the server will restart at every file change (it's slow!)
-- `meteor`: Your meteor application. Anything outside your
+- `meteor`: Your meteor application. Mainly your server stuff and file assets
 - `settings`: Your development and production settings for Meteor (you can add your own stuff)
 - `webpack`: Your development and production webpack config (go ahead and change the build to work the way you like it)
 
