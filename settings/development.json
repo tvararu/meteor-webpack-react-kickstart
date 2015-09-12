@@ -1,0 +1,7 @@
+{
+  "public": {
+    "webpack": {
+      "script": "/react-webpack-bundle/app.js"
+    }
+  }
+}
