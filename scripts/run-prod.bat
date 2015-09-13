@@ -1,6 +1,6 @@
-cd %~dp0
+cd %~dp0\..
 rd /s /q meteor/react-build-generated
 webpack --config webpack/production.config.js
 
 cd meteor
-meteor build ..
+meteor --settings ../settings/production.json

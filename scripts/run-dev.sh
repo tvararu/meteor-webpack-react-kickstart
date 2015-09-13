@@ -1,5 +1,5 @@
 #!/bin/bash
-ROOT_FOLDER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+ROOT_FOLDER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/..
 cd $ROOT_FOLDER/meteor
 rm -rf react-build-generated
 
