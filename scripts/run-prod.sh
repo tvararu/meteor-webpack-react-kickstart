@@ -2,8 +2,9 @@
 ROOT_FOLDER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/..
 
 cd $ROOT_FOLDER
+npm install
 rm -Rf meteor/react-build-generated
-webpack --config webpack/production.config.js
+./node_modules/.bin/webpack --config webpack/production.config.js
 
 cd meteor
 meteor --settings $ROOT_FOLDER/settings/production.json

@@ -15,8 +15,7 @@ The goal of this repository is to help anyone kickstart a new project by using M
 
 ## Steps
 1. `git clone https://github.com/thereactivestack/meteor-webpack-react-kickstart`
-2. `npm install`
-3. `./scripts/run-dev.sh`
+2. `./scripts/run-dev.sh`
 
 You will get:
 - A configured Webpack build
