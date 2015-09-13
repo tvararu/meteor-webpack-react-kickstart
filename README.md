@@ -1,7 +1,7 @@
 The easiest way to get started with Webpack hot-reload, React.js and Meteor is to clone this repository.
 
 # Steps
-1. git clone https://github.com/thereactivestack/meteor-webpack-react-kickstart
+1. `git clone https://github.com/thereactivestack/meteor-webpack-react-kickstart`
 2. `npm install`
 3. `./scripts/run-dev.sh`
 
