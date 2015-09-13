@@ -8,11 +8,9 @@ meteor-platform
 autopublish
 insecure
 react
-meteorhacks:npm
 
 
 reactrouter:react-router-ssr
 webpack:hot-reload
 
 
-npm-container
