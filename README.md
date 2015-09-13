@@ -3,9 +3,9 @@ The easiest way to get started with Webpack hot-reload, React.js and Meteor is t
 ## What is this?
 The goal of this repository is to help anyone kickstart a new project by using Meteor with React.js and Webpack.
 
-- In development, your Webpack bundle is served by a special middleware that is automatically plugged inside Meteor by `webpack:hot-reload`.
+- In development, your Webpack bundle is served by a special middleware that is automatically plugged inside Meteor by [`webpack:hot-reload`](https://atmospherejs.com/webpack/hot-reload).
 
-- In production, the code is bundled inside Meteor and allow you to do server-rendering easily with `reactrouter:react-router-ssr`.
+- In production, the code is bundled inside Meteor and allow you to do server-rendering easily with [`reactrouter:react-router-ssr`](https://atmospherejs.com/reactrouter/react-router-ssr).
 
 ## Why Webpack?
 - You can get hot reload in the browser without having to recompile (it's slow as hell otherwise)
