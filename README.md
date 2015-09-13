@@ -13,6 +13,15 @@ The goal of this repository is to help anyone kickstart a new project by using M
 - Your components are not all saved in a giant global scope (thank you Meteor but not for this). Instead, you use import or require to get them.
 - You can bundle any package for React from NPM without having to bundle it inside a Meteor package
 
+## What goes where?
+Only your React components should go in the react folder. Everything else is inside the meteor folder just the way you were doing it before.
+
+- React.js components: in the react folder
+- Collections / Methods: in the meteor folder
+- Subscriptions: in a server folder inside meteor
+- Stylesheets: in a client folder inside meteor
+- Assets (image, icons, ...): in the meteor public folder
+
 ## Steps
 1. `git clone https://github.com/thereactivestack/meteor-webpack-react-kickstart`
 2. `./scripts/run-dev.sh`

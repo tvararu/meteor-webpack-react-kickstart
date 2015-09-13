@@ -11,6 +11,8 @@ react
 meteorhacks:npm
 
 
-npm-container
 reactrouter:react-router-ssr
 webpack:hot-reload
+
+
+npm-container
