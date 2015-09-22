@@ -11,6 +11,10 @@ const TodoList = React.createClass({
   },
 
   render() {
+    if (!this.data.tasks) {
+      return null;
+    }
+
     return (
       <ul>
         {this.data.tasks.map(task => <TodoItem task={task} />)}
