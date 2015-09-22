@@ -1,10 +1,10 @@
 import { Component, PropTypes } from 'react';
 
 class TodoItem extends Component {
-  handleChecked() {
+  handleChecked(e) {
     // Set the checked property to the opposite of its current value
     Tasks.update(this.props.task._id, {
-      $set: {checked: ! this.props.task.checked}
+      $set: {checked: e.target.checked}
     });
   }
 
@@ -19,7 +19,7 @@ class TodoItem extends Component {
       <li className={itemClass}>
         <button className="delete" onClick={this.handleDelete.bind(this)}>&times;</button>
 
-        <input type="checkbox" checked={this.props.task.checked} onClick={this.handleChecked.bind(this)} className="toggle-checked" />
+        <input type="checkbox" checked={this.props.task.checked} onChange={this.handleChecked.bind(this)} className="toggle-checked" />
 
         <span className="text">{this.props.task.text}</span>
       </li>

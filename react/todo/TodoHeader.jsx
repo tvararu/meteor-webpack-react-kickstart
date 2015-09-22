@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, PropTypes } from 'react';
 
 class TodoHeader extends Component {
   handleSubmit(event) {
@@ -21,7 +21,12 @@ class TodoHeader extends Component {
   render() {
     return (
       <header>
-        <h1>Todo List</h1>
+        <h1>Todo List ({this.props.incompleteCount})</h1>
+
+        <label className="hide-completed">
+          <input type="checkbox" checked={this.props.hideCompleted} onChange={this.props.toggleHideCompleted} />
+          Hide Completed Tasks
+        </label>
 
         <form className="new-task" onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" name="text" placeholder="Type to add new tasks" />
@@ -30,5 +35,10 @@ class TodoHeader extends Component {
     );
   }
 }
+
+TodoHeader.propTypes = {
+  hideCompleted: PropTypes.bool,
+  toggleHideCompleted: PropTypes.func.isRequired
+};
 
 export default TodoHeader;

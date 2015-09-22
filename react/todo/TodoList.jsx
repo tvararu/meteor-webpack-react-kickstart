@@ -1,26 +1,19 @@
-import React from 'react';
+import { Component, PropTypes } from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = React.createClass({
-  mixins: [ReactMeteorData],
-
-  getMeteorData() {
-    return {
-      tasks: Tasks.find({}, {sort: {createdAt: -1}}).fetch()
-    };
-  },
-
+class TodoList extends Component {
   render() {
-    if (!this.data.tasks) {
-      return null;
-    }
-
     return (
       <ul>
-        {this.data.tasks.map(task => <TodoItem task={task} />)}
+        {this.props.tasks.map(task => <TodoItem key={task._id} task={task} />)}
       </ul>
     );
   }
-});
+}
+
+TodoList.propTypes = {
+  hideCompleted: PropTypes.bool,
+  tasks: PropTypes.array.isRequired
+};
 
 export default TodoList;
