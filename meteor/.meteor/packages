@@ -23,6 +23,7 @@ reload
 random
 ejson
 check
-static-html
-insecure
-autopublish
+thereactivestack:blazetoreact
+accounts-ui
+accounts-password
+blaze-html-templates

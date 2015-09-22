@@ -12,6 +12,7 @@ class TodoList extends Component {
 }
 
 TodoList.propTypes = {
+  user: PropTypes.object,
   hideCompleted: PropTypes.bool,
   tasks: PropTypes.array.isRequired
 };

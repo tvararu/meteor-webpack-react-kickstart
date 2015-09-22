@@ -3,17 +3,41 @@ import { Component, PropTypes } from 'react';
 class TodoItem extends Component {
   handleChecked(e) {
     // Set the checked property to the opposite of its current value
-    Tasks.update(this.props.task._id, {
-      $set: {checked: e.target.checked}
-    });
+    Meteor.call('setChecked', this.props.task._id, e.target.checked);
   }
 
   handleDelete() {
-    Tasks.remove(this.props.task._id);
+    Meteor.call('deleteTask', this.props.task._id);
+  }
+
+  handleSetPrivate() {
+    Meteor.call('setPrivate', this.props.task._id, !this.props.task.private);
+  }
+
+  renderTogglePrivate() {
+    if (Meteor.userId() !== this.props.task.owner) {
+      return null;
+    }
+
+    return (
+      <button className="toggle-private" onClick={this.handleSetPrivate.bind(this)}>
+        {this.props.task.private ? 'Private' : 'Public'}
+      </button>
+    );
   }
 
   render() {
-    const itemClass = this.props.task.checked ? 'checked' : null;
+    let itemClass = '';
+
+    if (this.props.task.checked) {
+      itemClass += 'checked';
+    }
+
+    if (this.props.task.private) {
+      itemClass += ' private';
+    }
+
+    let togglePrivate = null;
 
     return (
       <li className={itemClass}>
@@ -21,7 +45,9 @@ class TodoItem extends Component {
 
         <input type="checkbox" checked={this.props.task.checked} onChange={this.handleChecked.bind(this)} className="toggle-checked" />
 
-        <span className="text">{this.props.task.text}</span>
+        {this.renderTogglePrivate()}
+
+        <span className="text"><strong>{this.props.task.username}</strong> - {this.props.task.text}</span>
       </li>
     );
   }

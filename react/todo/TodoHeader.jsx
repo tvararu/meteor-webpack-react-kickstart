@@ -1,5 +1,7 @@
 import { Component, PropTypes } from 'react';
 
+const LoginButtons = BlazeToReact('loginButtons');
+
 class TodoHeader extends Component {
   handleSubmit(event) {
     // Prevent default browser form submit
@@ -9,16 +11,23 @@ class TodoHeader extends Component {
     var text = event.target.text.value;
 
     // Insert a task into the collection
-    Tasks.insert({
-      text: text,
-      createdAt: new Date() // current time
-    });
+    Meteor.call('addTask', text);
 
     // Clear form
     event.target.text.value = '';
   }
 
   render() {
+    let form = null;
+
+    if (this.props.user) {
+      form = (
+        <form className="new-task" onSubmit={this.handleSubmit.bind(this)}>
+          <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+      );
+    }
+
     return (
       <header>
         <h1>Todo List ({this.props.incompleteCount})</h1>
@@ -28,9 +37,9 @@ class TodoHeader extends Component {
           Hide Completed Tasks
         </label>
 
-        <form className="new-task" onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" name="text" placeholder="Type to add new tasks" />
-        </form>
+        <LoginButtons />
+
+        {form}
       </header>
     );
   }

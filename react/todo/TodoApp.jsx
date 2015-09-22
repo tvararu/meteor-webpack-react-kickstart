@@ -13,6 +13,8 @@ const TodoApp = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
+    Meteor.subscribe('tasks');
+
     let tasks;
 
     if (this.state.hideCompleted) {
@@ -25,7 +27,8 @@ const TodoApp = React.createClass({
 
     return {
       tasks,
-      incompleteCount
+      incompleteCount,
+      user: Meteor.user()
     };
   },
 
@@ -34,13 +37,20 @@ const TodoApp = React.createClass({
   },
 
   render() {
+    if (!this.data.tasks) {
+      // loading
+      return null;
+    }
+
     return (
       <div className="container">
         <TodoHeader
+          user={this.data.user}
           incompleteCount={this.data.incompleteCount}
           hideCompleted={this.state.hideCompleted}
           toggleHideCompleted={this.handleToggleHideCompleted} />
         <TodoList
+          user={this.data.user}
           tasks={this.data.tasks}
           hideCompleted={this.state.hideCompleted} />
       </div>
