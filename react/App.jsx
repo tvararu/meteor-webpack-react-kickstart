@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import TodoApp from './todo/TodoApp';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return this.props.children;
   }
@@ -10,5 +10,3 @@ class App extends Component {
 App.propTypes = {
   children: PropTypes.node.isRequired
 };
-
-export default App;

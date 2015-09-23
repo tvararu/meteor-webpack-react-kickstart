@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import TodoItem from './TodoItem';
 
-class TodoList extends Component {
+export default class TodoList extends Component {
   render() {
     return (
       <ul>
@@ -16,5 +16,3 @@ TodoList.propTypes = {
   hideCompleted: PropTypes.bool,
   tasks: PropTypes.array.isRequired
 };
-
-export default TodoList;

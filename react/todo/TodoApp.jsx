@@ -3,7 +3,7 @@ import React from 'react';
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
 
-const TodoApp = React.createClass({
+export default React.createClass({
   getInitialState() {
     return {
       hideCompleted: false
@@ -57,5 +57,3 @@ const TodoApp = React.createClass({
     );
   }
 });
-
-export default TodoApp;

@@ -1,6 +1,6 @@
 import { Component, PropTypes } from 'react';
 
-class TodoItem extends Component {
+export default class TodoItem extends Component {
   handleChecked(e) {
     // Set the checked property to the opposite of its current value
     Meteor.call('setChecked', this.props.task._id, e.target.checked);
@@ -56,5 +56,3 @@ class TodoItem extends Component {
 TodoItem.propTypes = {
   task: PropTypes.object.isRequired
 };
-
-export default TodoItem;

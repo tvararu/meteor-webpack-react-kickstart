@@ -2,7 +2,7 @@ import { Component, PropTypes } from 'react';
 
 const LoginButtons = BlazeToReact('loginButtons');
 
-class TodoHeader extends Component {
+export default class TodoHeader extends Component {
   handleSubmit(event) {
     // Prevent default browser form submit
     event.preventDefault();
@@ -49,5 +49,3 @@ TodoHeader.propTypes = {
   hideCompleted: PropTypes.bool,
   toggleHideCompleted: PropTypes.func.isRequired
 };
-
-export default TodoHeader;
