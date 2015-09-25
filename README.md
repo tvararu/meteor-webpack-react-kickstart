@@ -48,6 +48,8 @@ You can see a great example by reading the [TodoApp.jsx code](https://github.com
 # CSS in your React components
 This project allows you to require CSS (or SCSS/LESS) inside `componentWillMount` of your React components. This allows you to bundle your CSS with your React components. You will never miss a CSS file in your project again.
 
+When your component is mounted for the first time, the CSS will be injected in the page. This is how the css-loader of Webpack is working.
+
 ```javascript
 class MyComponent extends React.Component {
   componentWillMount() {
