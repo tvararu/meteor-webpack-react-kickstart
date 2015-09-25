@@ -1,14 +1,16 @@
+# meteor-webpack-react-kickstart
+
 Kickstart your project with the perfect Web App setup: Meteor + Webpack + React
 
 Nothing to setup, nothing to worry about. Replace the TodoApp (`react/todo`) by your own App, update the routes in `react/index.js` and you're good to go!
 
-If you are new to React, you should learn the basics first. You can watch [those videos about React fundamentals](https://egghead.io/series/react-fundamentals0) (little bit old but cover the basics very well).
+If you are new to React, you should learn the basics first. You can watch [those videos about React fundamentals](https://egghead.io/series/react-fundamentals) (little bit old but cover the basics very well).
 
 If you are new to Meteor, you should go through the [Meteor Todo tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app).
 
 Then, you can try the [TodoApp example](https://github.com/thereactivestack/meteor-webpack-react-kickstart/tree/master/react/todo) this project comes with.
 
-COMING SOON - A serie of videos is in process of being made to learn from scratch how to use Meteor with React. Watch this repo to stay tuned!
+COMING SOON - A serie of videos is in process of being made to learn from scratch how to use Meteor with React. Watch this repo or [follow me on Twitter](https://twitter.com/benoit_tremblay) to stay tuned!
 
 # What's so wonderful about this project?
 - You have hot reload of your React component with no page refresh (10x faster than Meteor hot-reload, no jokes)
@@ -16,12 +18,12 @@ COMING SOON - A serie of videos is in process of being made to learn from scratc
 - You can access any Meteor global variables like collections, ReactMeteorData, Meteor.call(), Meteor.user(), ...
 - You can require CSS inside `componentWillMount` of your React components (read the section to learn more)
 - You can require images so they get bundled automatically (`<img src={require('./img/check.png')} alt="" />`)
-- You can use Blaze templates by using [BlazeToReact](https://atmospherejs.com/thereactivestack/blazetoreact)
+- You can use Blaze templates with [BlazeToReact](https://atmospherejs.com/thereactivestack/blazetoreact)
 
 # Folder structure
 You might be confused because the folder structure is not how it used to be with Meteor. Here is what you need to know about each folder:
 
-- `react`: This is where all your React components, assets and CSS is going. The only purpose of this folder is to be able to change files without having Meteor restart. It has to be outside of Meteor. Their is no other way (at least for now). The package `react:hot-reload` will take care of updating the javascript on the client without refreshing the page.
+- `react`: This is where all your React components, assets and CSS is going. The only purpose of this folder is to be able to change files without having Meteor restart. It has to be outside of Meteor. Their is no other way (at least for now). The package `webpack:hot-reload` will take care of updating the javascript on the client without refreshing the page.
 - `meteor`: This is a regular Meteor project. Everything that you know about how files work within Meteor applies here.
 - `meteor/collections`: This is the recommended folder to store your database collections. Because they are global variables, they will be accessible within the react folder.
 - `meteor/public/assets`: This folder is reserved for Webpack public files. They are the assets Webpack bundled with your javascript. In dev mode, they are not written on the disk.
@@ -45,6 +47,8 @@ You can see a great example by reading the [TodoApp.jsx code](https://github.com
 
 # CSS in your React components
 This project allows you to require CSS (or SCSS/LESS) inside `componentWillMount` of your React components. This allows you to bundle your CSS with your React components. You will never miss a CSS file in your project again.
+
+When your component is mounted for the first time, the CSS will be injected in the page. This is how the css-loader of Webpack is working.
 
 ```javascript
 class MyComponent extends React.Component {
