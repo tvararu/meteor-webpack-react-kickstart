@@ -23,7 +23,7 @@ COMING SOON - A serie of videos is in process of being made to learn from scratc
 # Folder structure
 You might be confused because the folder structure is not how it used to be with Meteor. Here is what you need to know about each folder:
 
-- `react`: This is where all your React components, assets and CSS is going. The only purpose of this folder is to be able to change files without having Meteor restart. It has to be outside of Meteor. Their is no other way (at least for now). The package `react:hot-reload` will take care of updating the javascript on the client without refreshing the page.
+- `react`: This is where all your React components, assets and CSS is going. The only purpose of this folder is to be able to change files without having Meteor restart. It has to be outside of Meteor. Their is no other way (at least for now). The package `webpack:hot-reload` will take care of updating the javascript on the client without refreshing the page.
 - `meteor`: This is a regular Meteor project. Everything that you know about how files work within Meteor applies here.
 - `meteor/collections`: This is the recommended folder to store your database collections. Because they are global variables, they will be accessible within the react folder.
 - `meteor/public/assets`: This folder is reserved for Webpack public files. They are the assets Webpack bundled with your javascript. In dev mode, they are not written on the disk.
