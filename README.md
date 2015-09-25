@@ -10,7 +10,7 @@ If you are new to Meteor, you should go through the [Meteor Todo tutorial](https
 
 Then, you can try the [TodoApp example](https://github.com/thereactivestack/meteor-webpack-react-kickstart/tree/master/react/todo) this project comes with.
 
-COMING SOON - A serie of videos is in process of being made to learn from scratch how to use Meteor with React. Watch this repo to stay tuned!
+COMING SOON - A serie of videos is in process of being made to learn from scratch how to use Meteor with React. Watch this repo or [follow me on Twitter](https://twitter.com/benoit_tremblay) to stay tuned!
 
 # What's so wonderful about this project?
 - You have hot reload of your React component with no page refresh (10x faster than Meteor hot-reload, no jokes)
