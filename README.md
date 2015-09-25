@@ -1,3 +1,5 @@
+# meteor-webpack-react-kickstart
+
 Kickstart your project with the perfect Web App setup: Meteor + Webpack + React
 
 Nothing to setup, nothing to worry about. Replace the TodoApp (`react/todo`) by your own App, update the routes in `react/index.js` and you're good to go!
