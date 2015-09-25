@@ -1,4 +1,3 @@
 node_modules
 meteor/react-build-generated
-meteor/public/assets
-!meteor/public/assets/LEAVE_EMPTY.md
+!meteor/public/assets/*.*
