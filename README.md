@@ -1,48 +1,86 @@
-The easiest way to get started with Webpack hot-reload, React.js and Meteor is to clone this repository.
+Kickstart your project with the perfect Web App setup: Meteor + Webpack + React
 
-## What is this?
-The goal of this repository is to help anyone kickstart a new project by using Meteor with React.js and Webpack.
+Nothing to setup, nothing to worry about. Replace the TodoApp (`react/todo`) by your own App, update the routes in `react/index.js` and you're good to go!
 
-It contains the Meteor Todo example translated to React / Webpack.
+If you are new to React, you should learn the basics first. You can watch [those videos about React fundamentals](https://egghead.io/series/react-fundamentals0) (little bit old but cover the basics very well).
 
-- In development, your Webpack bundle is served by a special middleware that is automatically plugged inside Meteor by [`webpack:hot-reload`](https://atmospherejs.com/webpack/hot-reload).
+If you are new to Meteor, you should go through the [Meteor Todo tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app).
 
-- In production, the code is bundled inside Meteor and allow you to do server-rendering easily with [`reactrouter:react-router-ssr`](https://atmospherejs.com/reactrouter/react-router-ssr).
+Then, you can try the [TodoApp example](https://github.com/thereactivestack/meteor-webpack-react-kickstart/tree/master/react/todo) this project comes with.
 
-## Why Webpack?
-- You can get hot reload in the browser without having to recompile (it's slow as hell otherwise)
-- You don't lose the state of your components every time you change something
-- Your components are not all saved in a giant global scope (thank you Meteor but not for this). Instead, you use import or require to get them.
-- You can bundle any package for React from NPM without having to bundle it inside a Meteor package
+COMING SOON - A serie of videos is in process of being made to learn from scratch how to use Meteor with React. Watch this repo to stay tuned!
 
-## What goes where?
-Only your React components should go in the react folder. Everything else is inside the meteor folder just the way you were doing it before.
+# What's so wonderful about this project?
+- You have hot reload of your React component with no page refresh (10x faster than Meteor hot-reload, no jokes)
+- You can use ES6 modules to organize your React components
+- You can access any Meteor global variables like collections, ReactMeteorData, Meteor.call(), Meteor.user(), ...
+- You can require CSS inside `componentWillMount` of your React components (read the section to learn more)
+- You can require images so they get bundled automatically (`<img src={require('./img/check.png')} alt="" />`)
+- You can use Blaze templates by using [BlazeToReact](https://atmospherejs.com/thereactivestack/blazetoreact)
 
-- React.js components: in the react folder
-- Collections / Methods: in the meteor folder
-- Subscriptions: in a server folder inside meteor
-- Stylesheets: in a client folder inside meteor
-- Assets (image, icons, ...): in the meteor public folder
+# Folder structure
+You might be confused because the folder structure is not how it used to be with Meteor. Here is what you need to know about each folder:
 
-## Steps
-1. `git clone https://github.com/thereactivestack/meteor-webpack-react-kickstart`
-2. `./scripts/run-dev.sh`
+- `react`: This is where all your React components, assets and CSS is going. The only purpose of this folder is to be able to change files without having Meteor restart. It has to be outside of Meteor. Their is no other way (at least for now). The package `react:hot-reload` will take care of updating the javascript on the client without refreshing the page.
+- `meteor`: This is a regular Meteor project. Everything that you know about how files work within Meteor applies here.
+- `meteor/collections`: This is the recommended folder to store your database collections. Because they are global variables, they will be accessible within the react folder.
+- `meteor/public/assets`: This folder is reserved for Webpack public files. They are the assets Webpack bundled with your javascript. In dev mode, they are not written on the disk.
+- `meteor/client`: Anything you need to setup on the client that is Meteor specific. If you want to use the Meteor CSS bundle, you can put them in this folder.
+- `meteor/server`: The code you want to only run on the server (subscriptions, ...).
 
-You will get:
-- A configured Webpack build
-- React.js configured with react-router
-- Hot reload in development
-- Server-side rendering in production
+# Get started
+1. `git clone https://github.com/thereactivestack/meteor-webpack-react-kickstart.git`
+1. `npm install` in the root
+1. `./scripts/run-dev.sh` to run in development mode (with hot-reload)
+1. `./scripts/run-dev.sh` to run in production mode (with server-rendering, need to be restarted if you change anything inside the react folder)
+1. `./scripts/build.sh` to build the compressed bundle
+1. You can use `./meteor.sh` as a shortcut for executing `meteor` in the meteor folder
 
-## Folders
-- `react`: Your React.js application. It must be outside your Meteor project or the server will restart at every file change (it's slow!)
-- `meteor`: Your meteor application. Mainly your server stuff and file assets
-- `settings`: Your development and production settings for Meteor (you can add your own stuff)
-- `webpack`: Your development and production webpack config (go ahead and change the build to work the way you like it)
+*.bat scripts will be soon available for Windows*
 
-## Scripts
-Every scripts are written both for Linux/Mac (.sh) and for Windows (.bat)
+# How do I communicate with Meteor?
+You can use the [ReactMeteorData mixin](https://atmospherejs.com/meteor/react-meteor-data) from the Meteor team. You have to use React.createClass with them because mixins are deprecated with ES6 classes.
 
-- `run-dev`: Start Meteor with hot-reload
-- `run-prod`: Start Meteor with server-rendering (like in production)
-- `build`: Build your meteor project including the Webpack bundle
+You can see a great example by reading the [TodoApp.jsx code](https://github.com/thereactivestack/meteor-webpack-react-kickstart/blob/master/react/todo/TodoApp.jsx).
+
+# CSS in your React components
+This project allows you to require CSS (or SCSS/LESS) inside `componentWillMount` of your React components. This allows you to bundle your CSS with your React components. You will never miss a CSS file in your project again.
+
+```javascript
+class MyComponent extends React.Component {
+  componentWillMount() {
+    require('./MyComponent.css');
+  }
+
+  render() {
+    // ...
+  }
+}
+```
+
+In development, hot-reload will update your CSS with no page refresh.
+
+In production, the server will collect the CSS your client needs while doing the server-rendering. Then, the CSS will be served to the client with the HTML. As soon as the React application is started on the client, the CSS we collected while server-rendering will be removed and the client will take control.
+
+## SASS
+If you are getting this error, you need to make sure your global Node.js is matching the Meteor node.js version (currently 0.10.40):
+
+```
+Error: The `libsass` binding was not found in .../node_modules/node-sass/vendor/linux-x64-11/binding.node
+W20150925-15:43:08.319(-4)? (STDERR) This usually happens because your node version has changed.
+W20150925-15:43:08.319(-4)? (STDERR) Run `npm rebuild node-sass` to build the binding for your current node version.
+```
+
+Then clean your node_modules folder and npm install again.
+
+# How the build process is working?
+The idea behind using Webpack with Meteor is to be able to use awesome tools React people are already using. The gain in productivity is large.
+
+## Development
+While we are developing, Meteor is started with a webpack dev server. This means the file created by Webpack are only in memory and we can hot-reload them on the client. The advantage of that is Meteor will not restart unless it is really necessary.
+
+## Production
+In production, we are bundling a server and a client version with Webpack and drop them in the Meteor project. Then, we put the assets in the correct folder (meteor/public/assets). Those files are generated by webpack and are determined by your require of CSS and images (if you have any). Then, we start Meteor or we bundle the project.
+
+## Config
+- externals: You can access Meteor global variables by using import. By default, `react` and `react-router` are there. You can add your own.

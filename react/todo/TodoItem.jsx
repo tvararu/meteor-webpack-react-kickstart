@@ -37,8 +37,6 @@ export default class TodoItem extends Component {
       itemClass += ' private';
     }
 
-    let togglePrivate = null;
-
     return (
       <li className={itemClass}>
         <button className="delete" onClick={this.handleDelete.bind(this)}>&times;</button>

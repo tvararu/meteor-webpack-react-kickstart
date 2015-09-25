@@ -36,6 +36,10 @@ export default React.createClass({
     this.setState({ hideCompleted: e.target.checked });
   },
 
+  componentWillMount() {
+    require('./TodoApp.css');
+  },
+
   render() {
     if (!this.data.tasks) {
       // loading
@@ -45,7 +49,6 @@ export default React.createClass({
     return (
       <div className="container">
         <TodoHeader
-          user={this.data.user}
           incompleteCount={this.data.incompleteCount}
           hideCompleted={this.state.hideCompleted}
           toggleHideCompleted={this.handleToggleHideCompleted} />

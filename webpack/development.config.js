@@ -2,23 +2,24 @@ var path = require('path');
 var webpack = require('webpack');
 
 var babelSettings = {
-  stage: 0,
-  plugins: [
-    'react-transform'
-  ],
-  extra: {
-    'react-transform': [{
-      target: 'react-transform-hmr',
-      imports: ['react'],
-      locals: ['module']
-    }, {
-      target: 'react-transform-catch-errors',
-      imports: ['react', 'redbox-react']
-    }]
+  "stage": 0,
+  "plugins": ["react-transform"],
+  "extra": {
+    "react-transform": {
+      "transforms": [{
+        "transform": "react-transform-hmr",
+        "imports": ["react"],
+        "locals": ["module"]
+      }, {
+        "transform": "react-transform-catch-errors",
+        "imports": ["react", "redbox-react"]
+      }]
+    }
   }
 };
 
 module.exports = {
+  name: 'client',
   devtool: 'eval',
   context: path.join(__dirname, '..'),
   entry: [
@@ -26,9 +27,9 @@ module.exports = {
     './react'
   ],
   output: {
-    path: path.join(__dirname, '..', 'meteor', 'react-build-generated'),
-    filename: 'app.js',
-    publicPath: '/react-webpack-bundle/'
+    path: path.join(__dirname, '..', 'meteor', 'react-build-generated', 'client'),
+    filename: 'main.js',
+    publicPath: '/assets/'
   },
   externals: {
     'react': 'React',
@@ -39,11 +40,15 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json']
+    extensions: ['', '.jsx', '.js', '.json', '.css', '.scss']
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, loader: 'babel', query: babelSettings, exclude: /(node_modules|bower_components)/ }
+      { test: /\.jsx?$/, loader: 'babel', query: babelSettings, exclude: /(node_modules|bower_components)/ },
+      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.(png|jpe?g)(\?.*)?$/, loader: 'url?limit=8192'},
+      { test: /\.(svg|ttf|woff)(\?.*)?$/, loader: 'file'}
     ]
   }
 };
