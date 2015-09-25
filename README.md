@@ -4,7 +4,7 @@ Kickstart your project with the perfect Web App setup: Meteor + Webpack + React
 
 Nothing to setup, nothing to worry about. Replace the TodoApp (`react/todo`) by your own App, update the routes in `react/index.js` and you're good to go!
 
-If you are new to React, you should learn the basics first. You can watch [those videos about React fundamentals](https://egghead.io/series/react-fundamentals0) (little bit old but cover the basics very well).
+If you are new to React, you should learn the basics first. You can watch [those videos about React fundamentals](https://egghead.io/series/react-fundamentals) (little bit old but cover the basics very well).
 
 If you are new to Meteor, you should go through the [Meteor Todo tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app).
 
@@ -18,7 +18,7 @@ COMING SOON - A serie of videos is in process of being made to learn from scratc
 - You can access any Meteor global variables like collections, ReactMeteorData, Meteor.call(), Meteor.user(), ...
 - You can require CSS inside `componentWillMount` of your React components (read the section to learn more)
 - You can require images so they get bundled automatically (`<img src={require('./img/check.png')} alt="" />`)
-- You can use Blaze templates by using [BlazeToReact](https://atmospherejs.com/thereactivestack/blazetoreact)
+- You can use Blaze templates with [BlazeToReact](https://atmospherejs.com/thereactivestack/blazetoreact)
 
 # Folder structure
 You might be confused because the folder structure is not how it used to be with Meteor. Here is what you need to know about each folder:
