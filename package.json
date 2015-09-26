@@ -33,6 +33,7 @@
   },
   "standard": {
     "global": [
+      "Accounts",
       "Session",
       "Template",
       "Meteor",

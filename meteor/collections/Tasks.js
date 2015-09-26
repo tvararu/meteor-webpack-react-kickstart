@@ -1,1 +1,1 @@
-Tasks = new Mongo.Collection('tasks');
+Tasks = new Mongo.Collection('tasks') // eslint-disable-line
