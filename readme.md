@@ -12,19 +12,19 @@ npm install
 Run in development mode:
 
 ```bash
-npm run dev
+./scripts/run-dev.sh
 ```
 
 Build for production:
 
 ```bash
-npm run build
+./scripts/build.sh
 ```
 
 Run in production mode:
 
 ```bash
-npm run start
+./scripts/run-prod.sh
 ```
 
 Run meteor commands by prefixing them with `./meteor.sh`:
