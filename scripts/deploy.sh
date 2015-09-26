@@ -13,4 +13,4 @@ find meteor/react-build-generated/server -maxdepth 1 -mindepth 1 -not -name main
     -exec rm -f '{}' \;
 
 cd meteor
-meteor deploy
+meteor deploy $@
