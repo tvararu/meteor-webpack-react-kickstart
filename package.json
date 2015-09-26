@@ -7,7 +7,7 @@
     "url": "https://github.com/thereactivestack/meteor-webpack-react-kickstart.git"
   },
   "scripts": {
-    "lint": "standard"
+    "lint": "git diff --name-only @{u} | standard"
   },
   "license": "MIT",
   "dependencies": {
