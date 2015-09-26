@@ -1,9 +1,9 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 var babelSettings = {
   stage: 0
-};
+}
 
 module.exports = [
   {
@@ -36,8 +36,8 @@ module.exports = [
         { test: /\.jsx?$/, loader: 'babel', query: babelSettings, exclude: /(node_modules|bower_components)/ },
         { test: /\.css$/, loader: 'style!css' },
         { test: /\.scss$/, loader: 'style!css!sass' },
-        { test: /\.(png|jpe?g)(\?.*)?$/, loader: 'url?limit=8192'},
-        { test: /\.(svg|ttf|woff)(\?.*)?$/, loader: 'file'}
+        { test: /\.(png|jpe?g)(\?.*)?$/, loader: 'url?limit=8192' },
+        { test: /\.(svg|ttf|woff)(\?.*)?$/, loader: 'file' }
       ]
     }
   },
@@ -72,9 +72,9 @@ module.exports = [
         { test: /\.jsx?$/, loader: 'babel', query: babelSettings, exclude: /(node_modules|bower_components)/ },
         { test: /\.css$/, loader: 'style-collector!css' },
         { test: /\.scss$/, loader: 'style-collector!css!sass' },
-        { test: /\.(png|jpe?g)(\?.*)?$/, loader: 'url?limit=8192'},
-        { test: /\.(svg|ttf|woff2?)(\?.*)?$/, loader: 'file'}
+        { test: /\.(png|jpe?g)(\?.*)?$/, loader: 'url?limit=8192' },
+        { test: /\.(svg|ttf|woff2?)(\?.*)?$/, loader: 'file' }
       ]
     }
   }
-];
+]

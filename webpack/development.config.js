@@ -1,22 +1,22 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 var babelSettings = {
-  "stage": 0,
-  "plugins": ["react-transform"],
-  "extra": {
-    "react-transform": {
-      "transforms": [{
-        "transform": "react-transform-hmr",
-        "imports": ["react"],
-        "locals": ["module"]
+  'stage': 0,
+  'plugins': ['react-transform'],
+  'extra': {
+    'react-transform': {
+      'transforms': [{
+        'transform': 'react-transform-hmr',
+        'imports': ['react'],
+        'locals': ['module']
       }, {
-        "transform": "react-transform-catch-errors",
-        "imports": ["react", "redbox-react"]
+        'transform': 'react-transform-catch-errors',
+        'imports': ['react', 'redbox-react']
       }]
     }
   }
-};
+}
 
 module.exports = {
   name: 'client',
@@ -48,8 +48,8 @@ module.exports = {
       { test: /\.jsx?$/, loader: 'babel', query: babelSettings, exclude: /(node_modules|bower_components)/ },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.scss$/, loader: 'style!css!sass' },
-      { test: /\.(png|jpe?g)(\?.*)?$/, loader: 'url?limit=8192'},
-      { test: /\.(svg|ttf|woff)(\?.*)?$/, loader: 'file'}
+      { test: /\.(png|jpe?g)(\?.*)?$/, loader: 'url?limit=8192' },
+      { test: /\.(svg|ttf|woff)(\?.*)?$/, loader: 'file' }
     ]
   }
-};
+}
