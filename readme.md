@@ -27,7 +27,7 @@ Run in production mode:
 ./scripts/run-prod.sh
 ```
 
-Run meteor commands by prefixing them with `./meteor.sh`:
+Run meteor commands by prefixing them with `./meteor.sh`. Example:
 
 ```bash
 ./meteor.sh install fastclick
