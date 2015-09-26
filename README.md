@@ -2,6 +2,8 @@
 
 Kickstart your project with the perfect Web App setup: Meteor + Webpack + React
 
+You can see a demo at [http://ReactKickstarter.meteor.com](http://ReactKickstarter.meteor.com/).
+
 Nothing to setup, nothing to worry about. Replace the TodoApp (`react/todo`) by your own App, update the routes in `react/index.js` and you're good to go!
 
 If you are new to React, you should learn the basics first. You can watch [those videos about React fundamentals](https://egghead.io/series/react-fundamentals) (little bit old but cover the basics very well).
