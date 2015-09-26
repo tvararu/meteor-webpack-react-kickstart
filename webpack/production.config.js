@@ -28,6 +28,7 @@ module.exports = [
       })
     ],
     resolve: {
+      root: path.resolve(__dirname, '../react/'),
       extensions: ['', '.jsx', '.js', '.json', '.css', '.scss']
     },
     module: {
@@ -63,6 +64,7 @@ module.exports = [
       })
     ],
     resolve: {
+      root: path.resolve(__dirname, '../react/'),
       extensions: ['', '.jsx', '.js', '.json', '.css', '.scss']
     },
     module: {

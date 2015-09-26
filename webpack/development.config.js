@@ -40,6 +40,7 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
+    root: path.resolve(__dirname, '../react/'),
     extensions: ['', '.jsx', '.js', '.json', '.css', '.scss']
   },
   module: {
