@@ -6,6 +6,11 @@
     "type": "git",
     "url": "https://github.com/thereactivestack/meteor-webpack-react-kickstart.git"
   },
+  "scripts": {
+    "build": "./scripts/build.sh",
+    "dev": "./scripts/run-dev.sh",
+    "start": "./scripts/run-prod.sh"
+  },
   "license": "MIT",
   "dependencies": {
     "es6-promise": "^3.0.2"
