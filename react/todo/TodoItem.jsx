@@ -1,56 +1,54 @@
-import { Component, PropTypes } from 'react';
+import { Component, PropTypes } from 'react'
 
 export default class TodoItem extends Component {
-  handleChecked(e) {
+  static propTypes = {
+    task: PropTypes.object.isRequired
+  }
+
+  handleChecked = (e) => {
     // Set the checked property to the opposite of its current value
-    Meteor.call('setChecked', this.props.task._id, e.target.checked);
+    Meteor.call('setChecked', this.props.task._id, e.target.checked)
   }
 
-  handleDelete() {
-    Meteor.call('deleteTask', this.props.task._id);
+  handleDelete = () => {
+    Meteor.call('deleteTask', this.props.task._id)
   }
 
-  handleSetPrivate() {
-    Meteor.call('setPrivate', this.props.task._id, !this.props.task.private);
+  handleSetPrivate = () => {
+    Meteor.call('setPrivate', this.props.task._id, !this.props.task.private)
   }
 
-  renderTogglePrivate() {
+  renderTogglePrivate = () => {
     if (Meteor.userId() !== this.props.task.owner) {
-      return null;
+      return null
     }
 
-    return (
-      <button className="toggle-private" onClick={this.handleSetPrivate.bind(this)}>
-        {this.props.task.private ? 'Private' : 'Public'}
-      </button>
-    );
+    return <button className='toggle-private' onClick={ this.handleSetPrivate }>
+      { this.props.task.private ? 'Private' : 'Public' }
+    </button>
   }
 
-  render() {
-    let itemClass = '';
+  render () {
+    let itemClass = ''
 
     if (this.props.task.checked) {
-      itemClass += 'checked';
+      itemClass += 'checked'
     }
 
     if (this.props.task.private) {
-      itemClass += ' private';
+      itemClass += ' private'
     }
 
     return (
-      <li className={itemClass}>
-        <button className="delete" onClick={this.handleDelete.bind(this)}>&times;</button>
+    <li className={ itemClass }>
+        <button className='delete' onClick={ this.handleDelete }>&times;</button>
 
-        <input type="checkbox" checked={this.props.task.checked} onChange={this.handleChecked.bind(this)} className="toggle-checked" />
+        <input type='checkbox' checked={ this.props.task.checked } onChange={ this.handleChecked } className='toggle-checked' />
 
-        {this.renderTogglePrivate()}
+        { this.renderTogglePrivate() }
 
-        <span className="text"><strong>{this.props.task.username}</strong> - {this.props.task.text}</span>
+        <span className='text'><strong>{ this.props.task.username }</strong> - { this.props.task.text }</span>
       </li>
-    );
+    )
   }
 }
-
-TodoItem.propTypes = {
-  task: PropTypes.object.isRequired
-};
