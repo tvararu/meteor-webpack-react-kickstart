@@ -25,6 +25,7 @@
     "null-loader": "^0.1.1",
     "prepush-githook": "^0.1.1",
     "react": "^0.13.3",
+    "react-mixin": "^3.0.0",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.0",
     "redbox-react": "^1.0.6",
