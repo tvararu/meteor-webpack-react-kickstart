@@ -69,7 +69,7 @@ In development, hot-reload will update your CSS with no page refresh.
 In production, the server will collect the CSS your client needs while doing the server-rendering. Then, the CSS will be served to the client with the HTML. As soon as the React application is started on the client, the CSS we collected while server-rendering will be removed and the client will take control.
 
 ## SASS
-If you are getting this error, you need to make sure your global Node.js is matching the Meteor node.js version (currently 0.10.40):
+If you have this error:
 
 ```
 Error: The `libsass` binding was not found in .../node_modules/node-sass/vendor/linux-x64-11/binding.node
@@ -77,7 +77,12 @@ W20150925-15:43:08.319(-4)? (STDERR) This usually happens because your node vers
 W20150925-15:43:08.319(-4)? (STDERR) Run `npm rebuild node-sass` to build the binding for your current node version.
 ```
 
-Then clean your node_modules folder and npm install again.
+You need to edit `scripts/run-dev.sh` with the correct value. To figure it out, run this inside Meteor:
+```javascript
+console.log(process.platform + '-' + process.arch + '-' + process.versions.modules);
+```
+
+Then, remove the `node_modules/node-sass` folder and run again `scripts/run-dev.sh`.
 
 # How the build process is working?
 The idea behind using Webpack with Meteor is to be able to use awesome tools React people are already using. The gain in productivity is large.
