@@ -15,16 +15,16 @@ Run in development mode:
 ./scripts/run-dev.sh
 ```
 
-Build for production:
-
-```bash
-./scripts/build.sh
-```
-
 Run in production mode:
 
 ```bash
 ./scripts/run-prod.sh
+```
+
+Deploy:
+
+```bash
+./scripts/deploy.sh
 ```
 
 Run meteor commands by prefixing them with `./meteor.sh`. Example:
