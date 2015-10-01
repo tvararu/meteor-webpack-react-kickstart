@@ -16,7 +16,6 @@ meteor-base
 mobile-experience
 mongo
 session
-jquery
 tracker
 logging
 reload
