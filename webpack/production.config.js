@@ -18,7 +18,8 @@ module.exports = [
     },
     externals: {
       'react': 'React',
-      'react-router': 'ReactRouter'
+      'react-router': 'ReactRouter',
+      'underscore': '_'
     },
     plugins: [
       new webpack.DefinePlugin({
