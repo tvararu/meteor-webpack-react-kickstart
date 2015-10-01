@@ -2,10 +2,10 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import App from 'App'
-import TodoApp from 'todo/TodoApp'
+import Test from 'components/Test'
 
 ReactRouterSSR.Run(
   <Route path='/' component={ App }>
-    <IndexRoute component={ TodoApp } />
+    <IndexRoute component={ Test } />
   </Route>
 )
